@@ -127,6 +127,9 @@ class AdaptiveMXFP6Linear(nn.Module):
             linear.weight.detach(),
             linear.bias.detach() if linear.bias is not None else None,
         )
+        # Match the source linear's device so device-mismatch errors don't bite
+        # when quantize_linear_layers_ runs after model.to('cuda').
+        new = new.to(linear.weight.device)
         return new
 
     def quantize_from(self, weight: torch.Tensor, bias: Optional[torch.Tensor] = None) -> None:
