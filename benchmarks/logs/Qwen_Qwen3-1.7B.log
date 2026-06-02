@@ -1,0 +1,321 @@
+Loading Qwen/Qwen3-1.7B (inspection pass) ...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:23<00:23, 23.86s/it]Fetching 2 files: 100%|██████████| 2/2 [00:23<00:00, 11.93s/it]
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:  14%|█▎        | 42/311 [00:00<00:00, 418.67it/s]Loading weights:  27%|██▋       | 84/311 [00:00<00:00, 401.53it/s]Loading weights:  40%|████      | 125/311 [00:00<00:00, 398.00it/s]Loading weights:  54%|█████▍    | 169/311 [00:00<00:00, 413.32it/s]Loading weights:  68%|██████▊   | 211/311 [00:00<00:00, 394.50it/s]Loading weights:  82%|████████▏ | 254/311 [00:00<00:00, 332.11it/s]Loading weights:  93%|█████████▎| 289/311 [00:00<00:00, 332.53it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 381.73it/s]
+  Quantizable Linears: 196
+  Skipped Linears:     1
+    SKIP [excluded     ]  in_features=  2048  lm_head
+
+Run plan: 4 run(s)
+  - fp16                            (passthrough, no quantization)
+  - fp6_e3m2                        fixed: fp6_e3m2
+  - fp6_e2m3                        fixed: fp6_e2m3
+  - adaptive(fp6_e3m2,fp6_e2m3)     adaptive over: ['fp6_e3m2', 'fp6_e2m3']
+
+======================================================================
+Run: fp16
+======================================================================
+Loading fresh Qwen/Qwen3-1.7B ...
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:32,  3.37it/s]Loading weights:  15%|█▌        | 48/311 [00:00<00:01, 154.67it/s]Loading weights:  27%|██▋       | 83/311 [00:00<00:01, 214.99it/s]Loading weights:  39%|███▉      | 122/311 [00:00<00:00, 269.11it/s]Loading weights:  50%|█████     | 156/311 [00:00<00:00, 290.68it/s]Loading weights:  61%|██████    | 190/311 [00:00<00:00, 304.81it/s]Loading weights:  72%|███████▏  | 224/311 [00:00<00:00, 314.61it/s]Loading weights:  83%|████████▎ | 258/311 [00:01<00:00, 321.36it/s]Loading weights:  96%|█████████▌| 299/311 [00:01<00:00, 347.16it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 280.47it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+  Eval: 293 windows, seq_len=2048, stride=1024 (of 299078 total tokens)
+    window   5/293  running_ppl=16.458  elapsed=1s
+    window  10/293  running_ppl=15.929  elapsed=2s
+    window  15/293  running_ppl=13.180  elapsed=3s
+    window  20/293  running_ppl=13.881  elapsed=5s
+    window  25/293  running_ppl=14.053  elapsed=6s
+    window  30/293  running_ppl=14.452  elapsed=7s
+    window  35/293  running_ppl=15.003  elapsed=8s
+    window  40/293  running_ppl=14.605  elapsed=9s
+    window  45/293  running_ppl=14.948  elapsed=10s
+    window  50/293  running_ppl=15.221  elapsed=11s
+    window  55/293  running_ppl=15.616  elapsed=12s
+    window  60/293  running_ppl=15.494  elapsed=13s
+    window  65/293  running_ppl=15.032  elapsed=14s
+    window  70/293  running_ppl=14.951  elapsed=15s
+    window  75/293  running_ppl=14.532  elapsed=16s
+    window  80/293  running_ppl=14.115  elapsed=17s
+    window  85/293  running_ppl=14.189  elapsed=18s
+    window  90/293  running_ppl=14.597  elapsed=19s
+    window  95/293  running_ppl=14.919  elapsed=20s
+    window 100/293  running_ppl=14.922  elapsed=21s
+    window 105/293  running_ppl=14.844  elapsed=22s
+    window 110/293  running_ppl=14.560  elapsed=23s
+    window 115/293  running_ppl=14.200  elapsed=24s
+    window 120/293  running_ppl=14.073  elapsed=25s
+    window 125/293  running_ppl=14.249  elapsed=26s
+    window 130/293  running_ppl=14.293  elapsed=27s
+    window 135/293  running_ppl=14.373  elapsed=28s
+    window 140/293  running_ppl=14.369  elapsed=29s
+    window 145/293  running_ppl=14.370  elapsed=30s
+    window 150/293  running_ppl=14.495  elapsed=31s
+    window 155/293  running_ppl=14.480  elapsed=32s
+    window 160/293  running_ppl=14.522  elapsed=33s
+    window 165/293  running_ppl=14.429  elapsed=34s
+    window 170/293  running_ppl=14.340  elapsed=35s
+    window 175/293  running_ppl=14.315  elapsed=36s
+    window 180/293  running_ppl=14.387  elapsed=37s
+    window 185/293  running_ppl=14.651  elapsed=38s
+    window 190/293  running_ppl=14.838  elapsed=39s
+    window 195/293  running_ppl=14.969  elapsed=40s
+    window 200/293  running_ppl=15.038  elapsed=41s
+    window 205/293  running_ppl=15.047  elapsed=43s
+    window 210/293  running_ppl=15.069  elapsed=44s
+    window 215/293  running_ppl=15.149  elapsed=45s
+    window 220/293  running_ppl=15.149  elapsed=46s
+    window 225/293  running_ppl=15.123  elapsed=47s
+    window 230/293  running_ppl=15.148  elapsed=48s
+    window 235/293  running_ppl=15.197  elapsed=49s
+    window 240/293  running_ppl=15.175  elapsed=50s
+    window 245/293  running_ppl=15.094  elapsed=51s
+    window 250/293  running_ppl=15.019  elapsed=52s
+    window 255/293  running_ppl=15.033  elapsed=53s
+    window 260/293  running_ppl=15.002  elapsed=54s
+    window 265/293  running_ppl=14.977  elapsed=55s
+    window 270/293  running_ppl=15.011  elapsed=56s
+    window 275/293  running_ppl=14.915  elapsed=57s
+    window 280/293  running_ppl=14.911  elapsed=58s
+    window 285/293  running_ppl=14.962  elapsed=59s
+    window 290/293  running_ppl=15.036  elapsed=60s
+
+[fp16] PPL = 15.0302  (load 5s, quant 0s, eval 64s)
+
+======================================================================
+Run: fp6_e3m2
+======================================================================
+Loading fresh Qwen/Qwen3-1.7B ...
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:06,  4.68it/s]Loading weights:  14%|█▍        | 45/311 [00:00<00:01, 135.71it/s]Loading weights:  26%|██▌       | 81/311 [00:00<00:01, 202.29it/s]Loading weights:  37%|███▋      | 114/311 [00:00<00:00, 238.52it/s]Loading weights:  46%|████▌     | 142/311 [00:00<00:00, 249.67it/s]Loading weights:  56%|█████▋    | 175/311 [00:00<00:00, 273.30it/s]Loading weights:  68%|██████▊   | 211/311 [00:00<00:00, 298.76it/s]Loading weights:  79%|███████▉  | 246/311 [00:01<00:00, 312.22it/s]Loading weights:  90%|█████████ | 280/311 [00:01<00:00, 319.06it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 260.24it/s]
+Quantizing all Linears with strategies=['fp6_e3m2'] ...
+  Quantization took 4.3s
+  [fp6_e3m2] 196 Linears quantized (single strategy or passthrough)
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+  Eval: 293 windows, seq_len=2048, stride=1024 (of 299078 total tokens)
+    window   5/293  running_ppl=16.508  elapsed=1s
+    window  10/293  running_ppl=16.032  elapsed=2s
+    window  15/293  running_ppl=13.317  elapsed=3s
+    window  20/293  running_ppl=13.962  elapsed=4s
+    window  25/293  running_ppl=14.141  elapsed=5s
+    window  30/293  running_ppl=14.541  elapsed=6s
+    window  35/293  running_ppl=15.058  elapsed=7s
+    window  40/293  running_ppl=14.673  elapsed=8s
+    window  45/293  running_ppl=15.046  elapsed=9s
+    window  50/293  running_ppl=15.335  elapsed=10s
+    window  55/293  running_ppl=15.733  elapsed=11s
+    window  60/293  running_ppl=15.644  elapsed=12s
+    window  65/293  running_ppl=15.194  elapsed=13s
+    window  70/293  running_ppl=15.119  elapsed=14s
+    window  75/293  running_ppl=14.686  elapsed=15s
+    window  80/293  running_ppl=14.257  elapsed=16s
+    window  85/293  running_ppl=14.335  elapsed=17s
+    window  90/293  running_ppl=14.750  elapsed=18s
+    window  95/293  running_ppl=15.058  elapsed=20s
+    window 100/293  running_ppl=15.048  elapsed=21s
+    window 105/293  running_ppl=14.969  elapsed=22s
+    window 110/293  running_ppl=14.693  elapsed=23s
+    window 115/293  running_ppl=14.334  elapsed=24s
+    window 120/293  running_ppl=14.207  elapsed=25s
+    window 125/293  running_ppl=14.387  elapsed=26s
+    window 130/293  running_ppl=14.435  elapsed=27s
+    window 135/293  running_ppl=14.523  elapsed=28s
+    window 140/293  running_ppl=14.516  elapsed=29s
+    window 145/293  running_ppl=14.512  elapsed=30s
+    window 150/293  running_ppl=14.640  elapsed=31s
+    window 155/293  running_ppl=14.622  elapsed=32s
+    window 160/293  running_ppl=14.664  elapsed=33s
+    window 165/293  running_ppl=14.574  elapsed=34s
+    window 170/293  running_ppl=14.486  elapsed=35s
+    window 175/293  running_ppl=14.447  elapsed=36s
+    window 180/293  running_ppl=14.514  elapsed=37s
+    window 185/293  running_ppl=14.772  elapsed=38s
+    window 190/293  running_ppl=14.963  elapsed=39s
+    window 195/293  running_ppl=15.089  elapsed=40s
+    window 200/293  running_ppl=15.154  elapsed=41s
+    window 205/293  running_ppl=15.154  elapsed=42s
+    window 210/293  running_ppl=15.172  elapsed=43s
+    window 215/293  running_ppl=15.254  elapsed=44s
+    window 220/293  running_ppl=15.254  elapsed=45s
+    window 225/293  running_ppl=15.237  elapsed=46s
+    window 230/293  running_ppl=15.260  elapsed=47s
+    window 235/293  running_ppl=15.312  elapsed=48s
+    window 240/293  running_ppl=15.287  elapsed=49s
+    window 245/293  running_ppl=15.204  elapsed=50s
+    window 250/293  running_ppl=15.132  elapsed=51s
+    window 255/293  running_ppl=15.143  elapsed=52s
+    window 260/293  running_ppl=15.119  elapsed=53s
+    window 265/293  running_ppl=15.096  elapsed=54s
+    window 270/293  running_ppl=15.125  elapsed=55s
+    window 275/293  running_ppl=15.033  elapsed=56s
+    window 280/293  running_ppl=15.028  elapsed=58s
+    window 285/293  running_ppl=15.078  elapsed=59s
+    window 290/293  running_ppl=15.149  elapsed=60s
+
+[fp6_e3m2] PPL = 15.1433  (load 6s, quant 4s, eval 63s)
+
+======================================================================
+Run: fp6_e2m3
+======================================================================
+Loading fresh Qwen/Qwen3-1.7B ...
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:02,  4.97it/s]Loading weights:  15%|█▌        | 48/311 [00:00<00:01, 197.33it/s]Loading weights:  26%|██▌       | 81/311 [00:00<00:00, 243.05it/s]Loading weights:  39%|███▊      | 120/311 [00:00<00:00, 293.17it/s]Loading weights:  50%|████▉     | 154/311 [00:00<00:00, 306.50it/s]Loading weights:  60%|██████    | 188/311 [00:00<00:00, 306.35it/s]Loading weights:  72%|███████▏  | 224/311 [00:00<00:00, 311.61it/s]Loading weights:  84%|████████▎ | 260/311 [00:00<00:00, 275.50it/s]Loading weights:  95%|█████████▌| 296/311 [00:01<00:00, 294.21it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 282.01it/s]
+Quantizing all Linears with strategies=['fp6_e2m3'] ...
+  Quantization took 3.7s
+  [fp6_e2m3] 196 Linears quantized (single strategy or passthrough)
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+  Eval: 293 windows, seq_len=2048, stride=1024 (of 299078 total tokens)
+    window   5/293  running_ppl=16.906  elapsed=1s
+    window  10/293  running_ppl=16.326  elapsed=2s
+    window  15/293  running_ppl=13.552  elapsed=3s
+    window  20/293  running_ppl=14.287  elapsed=4s
+    window  25/293  running_ppl=14.461  elapsed=5s
+    window  30/293  running_ppl=14.856  elapsed=6s
+    window  35/293  running_ppl=15.411  elapsed=7s
+    window  40/293  running_ppl=14.993  elapsed=8s
+    window  45/293  running_ppl=15.357  elapsed=9s
+    window  50/293  running_ppl=15.643  elapsed=10s
+    window  55/293  running_ppl=16.033  elapsed=11s
+    window  60/293  running_ppl=15.882  elapsed=12s
+    window  65/293  running_ppl=15.407  elapsed=13s
+    window  70/293  running_ppl=15.304  elapsed=14s
+    window  75/293  running_ppl=14.882  elapsed=15s
+    window  80/293  running_ppl=14.472  elapsed=16s
+    window  85/293  running_ppl=14.551  elapsed=17s
+    window  90/293  running_ppl=14.970  elapsed=18s
+    window  95/293  running_ppl=15.296  elapsed=20s
+    window 100/293  running_ppl=15.315  elapsed=21s
+    window 105/293  running_ppl=15.244  elapsed=22s
+    window 110/293  running_ppl=14.953  elapsed=23s
+    window 115/293  running_ppl=14.574  elapsed=24s
+    window 120/293  running_ppl=14.441  elapsed=25s
+    window 125/293  running_ppl=14.621  elapsed=26s
+    window 130/293  running_ppl=14.666  elapsed=27s
+    window 135/293  running_ppl=14.765  elapsed=28s
+    window 140/293  running_ppl=14.767  elapsed=29s
+    window 145/293  running_ppl=14.772  elapsed=30s
+    window 150/293  running_ppl=14.900  elapsed=31s
+    window 155/293  running_ppl=14.882  elapsed=32s
+    window 160/293  running_ppl=14.922  elapsed=33s
+    window 165/293  running_ppl=14.827  elapsed=34s
+    window 170/293  running_ppl=14.742  elapsed=35s
+    window 175/293  running_ppl=14.718  elapsed=36s
+    window 180/293  running_ppl=14.790  elapsed=37s
+    window 185/293  running_ppl=15.062  elapsed=38s
+    window 190/293  running_ppl=15.254  elapsed=39s
+    window 195/293  running_ppl=15.386  elapsed=40s
+    window 200/293  running_ppl=15.456  elapsed=41s
+    window 205/293  running_ppl=15.458  elapsed=42s
+    window 210/293  running_ppl=15.474  elapsed=43s
+    window 215/293  running_ppl=15.551  elapsed=44s
+    window 220/293  running_ppl=15.549  elapsed=45s
+    window 225/293  running_ppl=15.523  elapsed=46s
+    window 230/293  running_ppl=15.547  elapsed=47s
+    window 235/293  running_ppl=15.602  elapsed=48s
+    window 240/293  running_ppl=15.584  elapsed=49s
+    window 245/293  running_ppl=15.501  elapsed=50s
+    window 250/293  running_ppl=15.422  elapsed=51s
+    window 255/293  running_ppl=15.434  elapsed=52s
+    window 260/293  running_ppl=15.405  elapsed=53s
+    window 265/293  running_ppl=15.380  elapsed=54s
+    window 270/293  running_ppl=15.415  elapsed=55s
+    window 275/293  running_ppl=15.321  elapsed=56s
+    window 280/293  running_ppl=15.316  elapsed=57s
+    window 285/293  running_ppl=15.367  elapsed=59s
+    window 290/293  running_ppl=15.441  elapsed=60s
+
+[fp6_e2m3] PPL = 15.4345  (load 5s, quant 4s, eval 63s)
+
+======================================================================
+Run: adaptive(fp6_e3m2,fp6_e2m3)
+======================================================================
+Loading fresh Qwen/Qwen3-1.7B ...
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   3%|▎         | 10/311 [00:00<00:03, 98.56it/s]Loading weights:  11%|█▏        | 35/311 [00:00<00:01, 185.61it/s]Loading weights:  22%|██▏       | 68/311 [00:00<00:00, 250.78it/s]Loading weights:  32%|███▏      | 101/311 [00:00<00:00, 281.68it/s]Loading weights:  42%|████▏     | 131/311 [00:00<00:00, 286.87it/s]Loading weights:  53%|█████▎    | 166/311 [00:00<00:00, 307.28it/s]Loading weights:  63%|██████▎   | 197/311 [00:00<00:00, 303.28it/s]Loading weights:  76%|███████▌  | 237/311 [00:00<00:00, 331.83it/s]Loading weights:  88%|████████▊ | 274/311 [00:00<00:00, 343.54it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 307.94it/s]
+Quantizing all Linears with strategies=['fp6_e3m2', 'fp6_e2m3'] ...
+  Quantization took 4.4s
+  [adaptive(fp6_e3m2,fp6_e2m3)] 196 Linears quantized; mean fractions:
+      fp6_e3m2                    0.1%
+      fp6_e2m3                   99.9%
+    Most fp6_e3m2-heavy layers (top 5):
+        0.8%  model.layers.1.mlp.gate_proj
+        0.6%  model.layers.19.self_attn.v_proj
+        0.5%  model.layers.16.mlp.down_proj
+        0.4%  model.layers.5.self_attn.v_proj
+        0.4%  model.layers.21.self_attn.v_proj
+    Least fp6_e3m2-heavy layers (bottom 5):
+        0.0%  model.layers.18.self_attn.o_proj
+        0.0%  model.layers.14.self_attn.o_proj
+        0.0%  model.layers.26.self_attn.o_proj
+        0.0%  model.layers.5.self_attn.o_proj
+        0.0%  model.layers.2.self_attn.o_proj
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (299078 > 131072). Running this sequence through the model will result in indexing errors
+  Eval: 293 windows, seq_len=2048, stride=1024 (of 299078 total tokens)
+    window   5/293  running_ppl=17.001  elapsed=1s
+    window  10/293  running_ppl=16.424  elapsed=2s
+    window  15/293  running_ppl=13.627  elapsed=3s
+    window  20/293  running_ppl=14.363  elapsed=4s
+    window  25/293  running_ppl=14.536  elapsed=5s
+    window  30/293  running_ppl=14.934  elapsed=6s
+    window  35/293  running_ppl=15.487  elapsed=7s
+    window  40/293  running_ppl=15.068  elapsed=8s
+    window  45/293  running_ppl=15.437  elapsed=9s
+    window  50/293  running_ppl=15.728  elapsed=10s
+    window  55/293  running_ppl=16.119  elapsed=11s
+    window  60/293  running_ppl=15.964  elapsed=12s
+    window  65/293  running_ppl=15.488  elapsed=13s
+    window  70/293  running_ppl=15.385  elapsed=14s
+    window  75/293  running_ppl=14.962  elapsed=15s
+    window  80/293  running_ppl=14.549  elapsed=16s
+    window  85/293  running_ppl=14.628  elapsed=17s
+    window  90/293  running_ppl=15.048  elapsed=18s
+    window  95/293  running_ppl=15.376  elapsed=20s
+    window 100/293  running_ppl=15.396  elapsed=21s
+    window 105/293  running_ppl=15.324  elapsed=22s
+    window 110/293  running_ppl=15.031  elapsed=23s
+    window 115/293  running_ppl=14.649  elapsed=24s
+    window 120/293  running_ppl=14.512  elapsed=25s
+    window 125/293  running_ppl=14.693  elapsed=26s
+    window 130/293  running_ppl=14.738  elapsed=27s
+    window 135/293  running_ppl=14.842  elapsed=28s
+    window 140/293  running_ppl=14.844  elapsed=29s
+    window 145/293  running_ppl=14.850  elapsed=30s
+    window 150/293  running_ppl=14.979  elapsed=31s
+    window 155/293  running_ppl=14.960  elapsed=32s
+    window 160/293  running_ppl=15.000  elapsed=33s
+    window 165/293  running_ppl=14.904  elapsed=34s
+    window 170/293  running_ppl=14.820  elapsed=35s
+    window 175/293  running_ppl=14.796  elapsed=36s
+    window 180/293  running_ppl=14.868  elapsed=37s
+    window 185/293  running_ppl=15.141  elapsed=38s
+    window 190/293  running_ppl=15.334  elapsed=39s
+    window 195/293  running_ppl=15.467  elapsed=40s
+    window 200/293  running_ppl=15.537  elapsed=41s
+    window 205/293  running_ppl=15.538  elapsed=42s
+    window 210/293  running_ppl=15.554  elapsed=43s
+    window 215/293  running_ppl=15.632  elapsed=44s
+    window 220/293  running_ppl=15.629  elapsed=45s
+    window 225/293  running_ppl=15.603  elapsed=46s
+    window 230/293  running_ppl=15.627  elapsed=47s
+    window 235/293  running_ppl=15.681  elapsed=48s
+    window 240/293  running_ppl=15.664  elapsed=49s
+    window 245/293  running_ppl=15.579  elapsed=50s
+    window 250/293  running_ppl=15.500  elapsed=51s
+    window 255/293  running_ppl=15.511  elapsed=52s
+    window 260/293  running_ppl=15.482  elapsed=53s
+    window 265/293  running_ppl=15.456  elapsed=54s
+    window 270/293  running_ppl=15.492  elapsed=55s
+    window 275/293  running_ppl=15.397  elapsed=56s
+    window 280/293  running_ppl=15.391  elapsed=58s
+    window 285/293  running_ppl=15.443  elapsed=59s
+    window 290/293  running_ppl=15.518  elapsed=60s
+
+[adaptive(fp6_e3m2,fp6_e2m3)] PPL = 15.5106  (load 6s, quant 4s, eval 62s)
+
+==============================================================
+HEADLINE: Qwen/Qwen3-1.7B - WikiText-2 perplexity
+  n_sequences=all, seq_len=2048, stride=1024, block_size=32
+==============================================================
+  Run                                 PPL         vs fp16
+  -------------------------------------------------------
+  fp16                            15.0302  (baseline)
+  fp6_e3m2                        15.1433  +0.1131
+  fp6_e2m3                        15.4345  +0.4043
+  adaptive(fp6_e3m2,fp6_e2m3)     15.5106  +0.4804
+
+Results saved to benchmarks/results/Qwen_Qwen3-1.7B_wikitext2.json
