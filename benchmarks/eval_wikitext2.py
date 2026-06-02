@@ -372,7 +372,7 @@ def main():
     # Save raw results
     out_dir = Path(args.results_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_file = out_dir / f"{args.model.replace('/', '_')}_wikitext2.json"
+    out_file = out_dir / f"{args.model.replace('/', '_')}_wikitext2_bs{args.block_size}.json"
     with open(out_file, "w") as f:
         json.dump({
             "model": args.model,
