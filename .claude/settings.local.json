@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./.venv/Scripts/python.exe tests/test_adaptive.py)",
+      "Bash(./.venv/Scripts/python.exe -u benchmarks/eval_wikitext2.py --n_sequences 2 --seq_len 512)"
+    ]
+  }
+}
