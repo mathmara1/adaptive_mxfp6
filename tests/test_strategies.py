@@ -125,35 +125,44 @@ def test_catalog_has_known_entries():
 
 
 def test_planned_strategies_present_in_catalog():
-    """Planned 6-bit strategies appear in the catalog (so they're discoverable)
+    """Still-unimplemented 6-bit strategies appear in the catalog (discoverable)
     but are flagged as not yet implemented."""
-    planned = ["int6", "nf6", "split6", "sfp6_shift_pos", "sfp6_shift_neg", "learned_residual"]
+    planned = ["split6", "sfp6_shift_pos", "sfp6_shift_neg", "learned_residual"]
     for name in planned:
         assert name in AVAILABLE_STRATEGIES, f"missing planned entry: {name}"
         info = AVAILABLE_STRATEGIES[name]
         assert info.bits == 6, f"{name} should be 6-bit, got {info.bits}"
         assert info.implemented is False, f"{name} should be marked not implemented"
         assert "TODO" in info.description, f"{name} description should contain TODO note"
-    _passed(f"all {len(planned)} planned 6-bit strategies are catalogued with implemented=False")
+    _passed(f"all {len(planned)} still-planned 6-bit strategies are catalogued with implemented=False")
+
+
+def test_recently_implemented_strategies():
+    """int6 and nf6 are now implemented; flag must reflect that and no TODO marker."""
+    for name in ["int6", "nf6"]:
+        info = AVAILABLE_STRATEGIES[name]
+        assert info.implemented is True, f"{name} should be marked implemented"
+        assert "TODO" not in info.description, f"{name} description should no longer contain TODO"
+    _passed("int6 and nf6 are marked implemented and TODO note removed")
 
 
 def test_validate_rejects_unimplemented():
     """Selecting a planned-but-unimplemented strategy raises NotImplementedError."""
     try:
-        validate_strategies(["int6"])
+        validate_strategies(["split6"])
     except NotImplementedError as e:
-        assert "int6" in str(e)
+        assert "split6" in str(e)
         assert "TODO" in str(e)
     else:
-        raise AssertionError("expected NotImplementedError for int6")
+        raise AssertionError("expected NotImplementedError for split6")
 
     # Also rejects when paired with an implemented one
     try:
-        validate_strategies(["fp6_e3m2", "int6"])
+        validate_strategies(["fp6_e3m2", "split6"])
     except NotImplementedError as e:
-        assert "int6" in str(e)
+        assert "split6" in str(e)
     else:
-        raise AssertionError("expected NotImplementedError for [fp6_e3m2, int6]")
+        raise AssertionError("expected NotImplementedError for [fp6_e3m2, split6]")
 
     _passed("validate_strategies rejects unimplemented strategies with NotImplementedError")
 
@@ -182,6 +191,7 @@ def main():
         test_choices_in_valid_range,
         test_catalog_has_known_entries,
         test_planned_strategies_present_in_catalog,
+        test_recently_implemented_strategies,
         test_validate_rejects_unimplemented,
         test_implemented_strategies_still_pass_validation,
     ]

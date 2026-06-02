@@ -61,24 +61,23 @@ AVAILABLE_STRATEGIES: Dict[str, StrategyInfo] = {
     "int6": StrategyInfo(
         name="int6",
         bits=6,
-        implemented=False,
+        implemented=True,
         description=(
-            "Uniform 6-bit signed integer grid (64 levels, evenly spaced in [-1, 1] "
-            "after absmax normalization). Pairs with an FP6 variant to form the 6-bit "
-            "analog of the IF4 scheme. "
-            "TODO: implement a custom int6 quantizer (not in microxcaling)."
+            "Uniform 6-bit signed integer grid (64 levels, two's complement: "
+            "[-32, -31, ..., 30, 31] / 32 after normalization). Evenly spaced — "
+            "uniform precision across the range. Pairs with an FP6 variant to "
+            "form the 6-bit analog of the IF4 scheme (IF6)."
         ),
     ),
     "nf6": StrategyInfo(
         name="nf6",
         bits=6,
-        implemented=False,
+        implemented=True,
         description=(
-            "Normal-distribution prior grid: 64 levels placed at equal-probability "
-            "quantiles of N(0, 1). The 6-bit analog of QLoRA's NF4. "
-            "Pairs naturally with a learned residual to form PO2(nf6) — the 6-bit "
-            "analog of Grid Games' PO2(NF4). "
-            "TODO: precompute codebook from Normal quantiles + implement codebook quantizer."
+            "Normal-distribution prior grid: 64 values placed at equal-probability "
+            "quantiles of N(0, 1) (32 positive + 1 zero + 31 negative). The 6-bit "
+            "analog of QLoRA's NF4. Pairs naturally with a learned residual to form "
+            "PO2(nf6) — the 6-bit analog of Grid Games' PO2(NF4)."
         ),
     ),
     "split6": StrategyInfo(
